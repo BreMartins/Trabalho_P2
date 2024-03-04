@@ -9,6 +9,7 @@ integrantes: Sérgio Brenno Martins de Alcântara Pereira                  Matr�
  */
 class Main {
     public static void main(String[] args) {
-        System.out.println("Hello world!");
+
     }
+
 }

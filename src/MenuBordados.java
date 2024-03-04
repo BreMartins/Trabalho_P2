@@ -1,7 +1,7 @@
 package src;
 
 public class MenuBordados {
-    Bordado[] bordados;
+    private Bordado[] bordados;
 
     MenuBordados() {
         this.bordados = new Bordado[10];
@@ -13,7 +13,7 @@ public class MenuBordados {
             throw new Error();
         }
 
-        if (linhas < 1 || colunas < 1 || linhas > 100 || colunas > 100) {
+        if (linhas < 2 || colunas < 2 || linhas > 100 || colunas > 100) {
             throw new Error();
         }
 
@@ -71,7 +71,7 @@ public class MenuBordados {
         }
     }
     
-    public void ListarBordados() {
+    public void listarBordados() {
         for (int i = 0; i < 10; i++) {
             if (this.bordados[i] != null ) {
                 System.out.println(
@@ -82,5 +82,25 @@ public class MenuBordados {
                 );
             }
         }
+    }
+
+    /**
+     * Altera o tamanho do bordado
+     * @param id identificador do bordado
+     * @param linha novo número de linhas
+     * @param coluna novo número de colunas
+     */
+    public void alterarTamanhoDoBordado(int id, int linha, int coluna) {
+        Bordado bordado = this.bordados[id];
+        
+        if (bordado == null) {
+            throw new Error();
+        }
+
+        if (linha < 1 || coluna < 1 || linha > 100 || coluna > 100) {
+            throw new Error();
+        }
+
+        bordado.redimensionar(linha, coluna);
     }
 }
